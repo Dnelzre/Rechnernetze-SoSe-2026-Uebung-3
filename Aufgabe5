@@ -1,0 +1,10 @@
+=====Aufgabe 5=====
+1. Verwendete Definition (nach IEEE 802.3)
+
+Bit 0: Fallende Flanke (High nach Low) in der Bit-Mitte.
+
+Bit 1: Steigende Flanke (Low nach High) in der Bit-Mitte.
+
+Bitfolge:   0      1      1      0      1      0      0      1      0      1      1      0      1      0
+          
+Signal:   ¯¯|__  __|¯¯ |__|¯¯  ¯¯|__  __|¯¯  ¯¯|__ |¯¯|__  __|¯¯  ¯¯|__  __|¯¯ |__|¯¯  ¯¯|__  __|¯¯  ¯¯|__

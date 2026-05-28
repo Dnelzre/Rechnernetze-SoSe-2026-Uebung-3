@@ -1,0 +1,24 @@
+======Aufgabe 1======
+
+---TCP caputre---
+
+Man kann im Capture einen Verbindungsaufbau erkennen (port 1357 zum Nachschauen):
+
+SYN
+SYN-ACK
+ACK
+
+Danach werden die eigentlichen Nachrichten übertragen. Wenn alles korrekt läuft, erscheinen dafür TCP-Datenpakete, oft mit den Flags `PSH, ACK`. Am Ende folgt normalerweise der Verbindungsabbau mit `FIN, ACK`.
+
+---UDP capture---
+
+(port 5556 zum Nachschauen)
+
+3532	63.995444200	127.0.0.1	127.0.0.1	UDP	32	59577 → 5556 Len=0
+
+Bei `nc_udp.py` gibt es diesen Verbindungsaufbau nicht. Hier sendet der Client direkt ein UDP-Datagramm an den Zielport, und der Server empfängt es ohne vorherige Aushandlung. Deshalb sieht man im UDP-Capture nur die eigentlichen Nutzdatenpakete, aber keine Handshake- oder Abschluss-Pakete.
+
+---Gemeinsamkeiten---
+
+Gemeinsam haben beide Programme, dass Texteingaben übertragen werden und ein Server auf einem festen Port wartet. Der Unterschied ist, dass TCP zuverlässiger und verbindungsorientiert arbeitet, während UDP einfacher und schneller ist, aber keine Zustellung garantiert. Genau deshalb ist im TCP-Capture mehr Protokoll-Overhead zu sehen als im UDP-Capture.
+
